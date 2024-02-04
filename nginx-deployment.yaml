@@ -1,17 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: "2024-02-04T07:43:07Z"
-  generation: 1
   labels:
     app: nginx-deployment
   name: nginx-deployment
   namespace: default
-  uid: 8715c69e-4cbb-4ab1-836a-9bd8951e2c76
 spec:
-  progressDeadlineSeconds: 600
   replicas: 2
-  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: nginx-deployment
@@ -22,7 +17,6 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: nginx-deployment
     spec:
@@ -35,7 +29,3 @@ spec:
         terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
-status: {}
